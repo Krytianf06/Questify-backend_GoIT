@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const userDB = require('../user');
+const userDB = require('../../service/mongoDB/mongoDB');
 
 
 const authorization = async (req, res, next) =>{
