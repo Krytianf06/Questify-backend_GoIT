@@ -3,12 +3,20 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
     {
+        name: {
+          type: String,
+          minlength: 4,
+          maxlength: 70,
+          required: [true, 'Set name for contact'],
+
+        },
         password: {
           type: String,
           required: [true, 'Password is required'],
         },
         email: {
           type: String,
+          lowercase: true,
           required: [true, 'Email is required'],
           unique: true,
         },
