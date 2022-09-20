@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const {register, login} = require('../../controllers/auth/index')
+const {authorization} = require('../../service/valid/tokenValid');
+const {register, logout} = require('../../controllers/auth/index');
 
 router.post('/register',register);
 
+router.post('/logout',authorization,logout);
 // router.post('/login',login);
 
 
