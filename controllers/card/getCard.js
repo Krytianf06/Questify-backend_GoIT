@@ -16,7 +16,6 @@ const getCards = async (req, res, next) => {
 };
 
 
-
 module.exports = {
     getCards,
 };

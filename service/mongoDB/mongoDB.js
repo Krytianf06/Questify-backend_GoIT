@@ -10,7 +10,7 @@ const findAndUpdate = (id, setID) => User.findOneAndUpdate(id, setID)
 
 const findUserID = (data) => User.findById(data);
 
-const Update = (id, data) => User.update(id,{$push:{cards:[data]}})
+const Update = (id, data) => User.updateOne(id,{$push:{cards:[data]}})
 
 const putContact = (contactId, fields) => User.findOneAndUpdate(
     {
@@ -19,7 +19,10 @@ const putContact = (contactId, fields) => User.findOneAndUpdate(
     {
       $set: fields,
     },
-  );
+);
+
+
+
 
 
 module.exports = {

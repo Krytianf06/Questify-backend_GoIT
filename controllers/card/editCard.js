@@ -13,10 +13,6 @@ const editCard = async (req, res, next) => {
     const cardIndex = user?.cards.findIndex(
     (card) => card._id.toString() === cardId.toString());
 
-    // console.log(card);
-    
-        // const id = user._id
-
     if (!card || cardIndex === undefined) {
         return res.status(400).send({ message: "Invalid 'cardId'" });
     }
@@ -24,12 +20,10 @@ const editCard = async (req, res, next) => {
     // console.log(id);
     
     const newCard = {...card, ...req.body};
-    // console.log(newCard);
     const result = await userDB.putContact({cards:cardId}, newCard);
-    // console.log(result);
+    console.log(newCard);
 
-
-    res.status(200).json({message:result}); 
+    res.status(200).json({message:newCard}); 
 };
 
 
