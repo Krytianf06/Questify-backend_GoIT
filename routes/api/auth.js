@@ -6,8 +6,6 @@ const {register, logout} = require('../../controllers/auth/index');
 
 router.post('/register',register);
 
-router.post('/logout',authorization,logout);
-// router.post('/login',login);
-
+router.post('/logout',authorization, logout);
 
 module.exports = router
