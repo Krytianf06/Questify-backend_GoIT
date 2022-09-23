@@ -28,8 +28,7 @@ const userSchema = new Schema(
       cards: [
         {
           title: {
-            type: String,
-            // unique: true, 
+            type: String, 
           },
           difficulty: {
             type: String,
