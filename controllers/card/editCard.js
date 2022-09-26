@@ -20,15 +20,13 @@ const editCard = async (req, res, next) => {
         return res.status(400).send({ message: "Invalid 'cardId'" });
     }
     
-    // console.log(id);
-    
-    const newCard = {...card, ...req.body};
+    const newCard = {...card, ...data};
     
     await cardDB.editCardDB({email: user.email, "cards._id": cardId}, {
         "$set": {
-            "cards.$": data,
+            "cards.$": newCard,
         }
-    })
+    });
 
     res.status(200).json({message:newCard});
 

@@ -2,8 +2,9 @@ const cardDB = require('../../service/mongoDB/cardDB');
 
 
 const getCards = async (req, res, next) => {
-    const userData = await cardDB.getAllCards();
+    
   try {
+    const userData = await cardDB.getAllCards();
      if (userData) {
       const allCards = userData.cards
 
