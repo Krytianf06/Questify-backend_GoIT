@@ -3,17 +3,17 @@ const Joi = require("joi");
 const userValid = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
-  name:Joi.string().optional(),
-  subscription: Joi.string().optional(),
+  name:Joi.string().min(4).max(70).required(),
   token: Joi.string().optional(),
 });
 
 const cardValid = Joi.object({
-  title: Joi.string().email().required(),
-  difficulty: Joi.string().required(),
+  title: Joi.string().required(),
+  difficulty: Joi.string().optional(),
   category:Joi.string().optional(),
-  date: Joi.string().optional(),
-  time: Joi.string().optional(),
+  date: Joi.string().required(),
+  time: Joi.string().required(),
+  type: Joi.string().optional(),
 });
 
 
