@@ -24,8 +24,8 @@ const addCard = async (req, res, next) => {
         }
  
       }
-    } catch (e) {
-      next(e);
+    } catch (error) {
+      next(error);
     }
 };
 

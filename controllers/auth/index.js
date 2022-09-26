@@ -75,8 +75,14 @@ const register = async (req, res, next) => {
 
 const logout = async (req, res) => {
     const {_id} = req.user;
+    try {
         await userDB.findAndUpdateUser(_id, {token: null});
         return res.status(204).json({message: "No Content"});
+    } catch (error) {
+        next(error);
+    }
+        
+
 };
 
 module.exports = {

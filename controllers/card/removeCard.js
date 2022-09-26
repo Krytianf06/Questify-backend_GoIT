@@ -1,11 +1,13 @@
 const userDB = require('../../service/mongoDB/mongoDB');
-const User = require('../../service/schema/schemaBD');
+const cardDB = require('../../service/mongoDB/cardDB');
+
 
 const removeCard = async (req, res, next) => {
     const {cardId} = req.query;
     const {email} = req.user;
     const data = req.body;
-    const user = await userDB.findUser({email});
+    try {
+        const user = await userDB.findUser({email});
     
     const card = user?.cards.find((card)=> card._id.toString() === cardId.toString())
     
@@ -18,19 +20,19 @@ const removeCard = async (req, res, next) => {
     const CardsAll = user.cards;
     const removeCard = CardsAll.splice(cardIndex,1);
 
-    await User.findOneAndUpdate({email: user.email}, {
+    await cardDB.removeCardDB({email: user.email}, {
         "$set": {
             "cards": CardsAll,
         }
     })
 
     res.status(200).json({message:removeCard}); 
-
-
+        
+    } catch (error) {
+        next(error);
+    }
+    
 };
-
-
-
 
 
 module.exports = {
