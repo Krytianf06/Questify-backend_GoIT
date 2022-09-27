@@ -26,7 +26,7 @@ const removeCard = async (req, res, next) => {
         }
     })
 
-    res.status(200).json({message:removeCard}); 
+    res.status(200).json(removeCard); 
         
     } catch (error) {
         next(error);

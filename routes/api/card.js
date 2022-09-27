@@ -11,6 +11,7 @@ router.get('/card',authorization, getCards);
 router.post('/card', authorization, addCard);
 router.patch('/card', authorization, editCard);
 router.delete('/card',authorization,removeCard);
+router.patch('/card/complete', authorization, editCard);
 
 
 module.exports = router
