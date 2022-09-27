@@ -10,7 +10,10 @@ const getCards = async (req, res, next) => {
       const allCards = user.cards
 
       res.status(200).json({cards:allCards}); 
+      } else {
+        res.status(200).json("Nic");
       }
+
   } catch (error) {
     next(error);
   }

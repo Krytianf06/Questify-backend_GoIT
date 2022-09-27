@@ -28,7 +28,7 @@ const editCard = async (req, res, next) => {
         }
     });
 
-    res.status(200).json({message:newCard});
+    res.status(200).json(newCard);
 
         
     } catch (error) {
