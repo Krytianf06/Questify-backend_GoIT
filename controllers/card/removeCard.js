@@ -19,6 +19,7 @@ const removeCard = async (req, res, next) => {
     }
     const CardsAll = user.cards;
     const removeCard = CardsAll.splice(cardIndex,1);
+    const lastRemoveCard = removeCard[0];
 
     await cardDB.removeCardDB({email: user.email}, {
         "$set": {
@@ -26,7 +27,7 @@ const removeCard = async (req, res, next) => {
         }
     })
 
-    res.status(200).json(removeCard); 
+    res.status(200).json(lastRemoveCard); 
         
     } catch (error) {
         next(error);
