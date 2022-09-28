@@ -3,7 +3,7 @@ const Joi = require("joi");
 const userValid = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
-  name:Joi.string().min(4).max(70).required(),
+  name:Joi.string().min(3).max(70).required(),
   token: Joi.string().optional(),
 });
 

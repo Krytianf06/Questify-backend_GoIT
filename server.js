@@ -2,7 +2,7 @@ const app = require('./app');
 const mongoose = require('mongoose');
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const uriDb = process.env.DB_SRV;
 
 const connection = mongoose.connect(uriDb, {
