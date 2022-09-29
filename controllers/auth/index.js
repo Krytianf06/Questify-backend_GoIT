@@ -24,7 +24,7 @@ const register = async (req, res, next) => {
         const user = await userDB.findUser({email});
         const error = await valid.userValid.validate(req.body);
         if (!error) {
-            res.status(400).json({message:error})
+            res.status(400).json({message:"The login details are incorrect"})
         } else if (user){
             const passVerification = bcrypt.compareSync(password, (user && user.password) || '');
             if (!passVerification){
