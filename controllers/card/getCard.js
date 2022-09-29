@@ -8,7 +8,7 @@ const getCards = async (req, res, next) => {
     // const userData = await cardDB.getAllCards();
      if (user) {
       const allCards = user.cards
-
+      
       res.status(200).json({cards:allCards}); 
       } else {
         res.status(200).json("Nic");
