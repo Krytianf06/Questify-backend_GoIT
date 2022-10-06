@@ -17,7 +17,7 @@ const editCard = async (req, res, next) => {
     (card) => card._id.toString() === cardId.toString());
 
     if (!card || cardIndex === undefined) {
-        return res.status(400).send({ message: "Invalid 'cardId'" });
+        return res.status(403).send({ message: "Invalid 'cardId'" });
     }
     
     const newCard = {...card, ...data};
