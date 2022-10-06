@@ -15,7 +15,7 @@ const removeCard = async (req, res, next) => {
     (card) => card._id.toString() === cardId.toString());
 
     if (!card || cardIndex === undefined) {
-        return res.status(400).send({ message: "Invalid 'cardId'" });
+        return res.status(403).send({ message: "Invalid 'cardId'" });
     }
     const CardsAll = user.cards;
     const removeCard = CardsAll.splice(cardIndex,1);
@@ -27,7 +27,7 @@ const removeCard = async (req, res, next) => {
         }
     })
 
-    res.status(200).json(lastRemoveCard); 
+    res.status(204).json(lastRemoveCard); 
         
     } catch (error) {
         next(error);

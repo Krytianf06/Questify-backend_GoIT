@@ -77,7 +77,7 @@ const logout = async (req, res) => {
     const {_id} = req.user;
     try {
         await userDB.findAndUpdateUser(_id, {token: null});
-        return res.status(204).json({message: "No Content"});
+        return res.status(204).json({message: "Successful operation"});
     } catch (error) {
         next(error);
     }

@@ -8,7 +8,7 @@ const addCard = async (req, res, next) => {
       const { error } = valid.cardValid.validate(req.body)
       const { email, _id  } = req.user;
       if (error) {
-        res.status(403).json({message: error});
+        res.status(403).json({message: "invalid request body"});
         
       } else {
 

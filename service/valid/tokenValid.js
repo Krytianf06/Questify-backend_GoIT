@@ -7,7 +7,7 @@ const authorization = async (req, res, next) =>{
   
   try {
   if(!token){
-      return res.status(401).json({message:"Not authorized" });
+      return res.status(400).json({message:"No token provided" });
      }
     const { id } = jwt.verify(token, process.env.SECRET);
     const user = await userDB.findUserID(id);
