@@ -9,9 +9,9 @@ const getCards = async (req, res, next) => {
      if (user) {
       const allCards = user.cards
       
-      res.status(201).json({cards:allCards}); 
+      res.status(200).json({cards:allCards}); 
       } else {
-        res.status(201).json("Nic");
+        res.status(200).json("Nic");
       }
 
   } catch (error) {
